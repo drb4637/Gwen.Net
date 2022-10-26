@@ -5,10 +5,10 @@ using Gwen.Net.OpenTk.Platform;
 using Gwen.Net.OpenTk.Renderers;
 using Gwen.Net.Platform;
 using Gwen.Net.Skin;
-using OpenToolkit.Mathematics;
-using OpenToolkit.Windowing.Common;
-using OpenToolkit.Windowing.Common.Input;
-using OpenToolkit.Windowing.Desktop;
+using OpenTK.Mathematics;
+using OpenTK.Windowing.Common;
+using OpenTK.Windowing.Common.Input;
+using OpenTK.Windowing.Desktop;
 
 namespace Gwen.Net.OpenTk
 {
@@ -36,7 +36,7 @@ namespace Gwen.Net.OpenTk
             GwenPlatform.Init(new NetCorePlatform(SetCursor));
             AttachToWindowEvents();
             renderer = ResolveRenderer(Settings.Renderer);
-            skin = new TexturedBase(renderer, "DefaultSkin2.png")
+            skin = new TexturedBase(renderer, Settings.SkinFile)
             {
                 DefaultFont = new Font(renderer, "Calibri", 11)
             };

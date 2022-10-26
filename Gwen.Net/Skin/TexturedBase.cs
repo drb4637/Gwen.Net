@@ -452,7 +452,7 @@ namespace Gwen.Net.Skin
 
             Textures.TextBox.Normal = new Bordered(m_Texture, 0, 150, 127, 21, Margin.Four);
             Textures.TextBox.Focus = new Bordered(m_Texture, 0, 172, 127, 21, Margin.Four);
-            Textures.TextBox.Disabled = new Bordered(m_Texture, 0, 193, 127, 21, Margin.Four);
+            Textures.TextBox.Disabled = new Bordered(m_Texture, 0, 194, 127, 21, Margin.Four);
 
             Textures.Menu.Strip = new Bordered(m_Texture, 0, 128, 127, 21, Margin.One);
             Textures.Menu.BackgroundWithMargin = new Bordered(m_Texture, 128, 128, 127, 63, new Margin(24, 8, 8, 8));

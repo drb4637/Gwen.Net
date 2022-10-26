@@ -12,7 +12,7 @@ namespace Gwen.Net.OpenTk
         };
 
         //Make this a source or stream?
-        public FileInfo SkinFile { get; set; }
+        public string SkinFile { get; set; }
 
         public string DefaultFont { get; set; }
 

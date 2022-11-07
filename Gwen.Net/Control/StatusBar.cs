@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gwen.Net.Control
+﻿namespace Gwen.Net.Control
 {
     /// <summary>
     /// Status bar.
@@ -8,7 +6,7 @@ namespace Gwen.Net.Control
     [Xml.XmlControl]
     public class StatusBar : ControlBase
     {
-        private Label m_Label;
+        private readonly Label m_Label;
 
         [Xml.XmlProperty]
         public string Text { get { return m_Label.Text; } set { m_Label.Text = value; } }

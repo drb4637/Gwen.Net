@@ -1,5 +1,4 @@
 ﻿using System;
-using Gwen.Net;
 using Gwen.Net.Control;
 
 namespace Gwen.Net.Tests.Components

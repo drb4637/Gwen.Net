@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Gwen.Net.RichText
 {
     public class TextPart : Part
     {
-        private string m_Text;
+        private readonly string m_Text;
         private Color? m_Color;
         private Font m_Font;
 

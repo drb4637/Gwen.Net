@@ -257,7 +257,7 @@ namespace Gwen.Net.Control
         /// <returns>Found node or null.</returns>
         public TreeNode FindNodeByName(string name, bool recursive = true)
         {
-            return m_RootNode.FindNodeByName(name, recursive) as TreeNode;
+            return m_RootNode.FindNodeByName(name, recursive);
         }
 
         /// <summary>

@@ -17,10 +17,10 @@ namespace Gwen.Net.Xml
     /// </summary>
     public class Parser : IDisposable
     {
-        private static Dictionary<string, ElementDef> m_ElementHandlers = new Dictionary<string, ElementDef>();
+        private static readonly Dictionary<string, ElementDef> m_ElementHandlers = new Dictionary<string, ElementDef>();
 
-        private static Dictionary<Type, AttributeValueConverter> m_AttributeValueConverters = new Dictionary<Type, AttributeValueConverter>();
-        private static Dictionary<Type, EventHandlerConverter> m_EventHandlerConverters = new Dictionary<Type, EventHandlerConverter>();
+        private static readonly Dictionary<Type, AttributeValueConverter> m_AttributeValueConverters = new Dictionary<Type, AttributeValueConverter>();
+        private static readonly Dictionary<Type, EventHandlerConverter> m_EventHandlerConverters = new Dictionary<Type, EventHandlerConverter>();
 
         private XmlReader m_Reader;
 
@@ -144,8 +144,7 @@ namespace Gwen.Net.Xml
         /// <returns>Control.</returns>
         public Gwen.Net.Control.ControlBase ParseElement(Gwen.Net.Control.ControlBase parent)
         {
-            ElementDef elementDef;
-            if (m_ElementHandlers.TryGetValue(m_Reader.Name, out elementDef))
+            if (m_ElementHandlers.TryGetValue(m_Reader.Name, out ElementDef elementDef))
             {
                 m_CurrentElement = elementDef;
 
@@ -169,8 +168,7 @@ namespace Gwen.Net.Xml
             if (attribs.Length > 0)
                 attrib = attribs[0] as XmlControlAttribute;
 
-            ElementDef elementDef;
-            if (m_ElementHandlers.TryGetValue(attrib != null && attrib.ElementName != null ? attrib.ElementName : type.Name, out elementDef))
+            if (m_ElementHandlers.TryGetValue(attrib != null && attrib.ElementName != null ? attrib.ElementName : type.Name, out ElementDef elementDef))
             {
                 if (elementDef.Type == type)
                 {
@@ -250,8 +248,7 @@ namespace Gwen.Net.Xml
 
         private bool SetComponentAttribute(Component component, string attribute, string value)
         {
-            Type type;
-            if (component.GetValueType(attribute, out type))
+            if (component.GetValueType(attribute, out Type type))
             {
                 if (type == null)
                 {
@@ -260,8 +257,7 @@ namespace Gwen.Net.Xml
                 }
                 else
                 {
-                    AttributeValueConverter converter;
-                    if (m_AttributeValueConverters.TryGetValue(type, out converter))
+                    if (m_AttributeValueConverters.TryGetValue(type, out AttributeValueConverter converter))
                     {
                         if (component.SetValue(attribute, converter(component, value)))
                             return true;
@@ -349,8 +345,7 @@ namespace Gwen.Net.Xml
 
         private bool SetPropertyValue(object element, PropertyInfo propertyInfo, string value)
         {
-            AttributeValueConverter converter;
-            if (m_AttributeValueConverters.TryGetValue(propertyInfo.PropertyType, out converter))
+            if (m_AttributeValueConverters.TryGetValue(propertyInfo.PropertyType, out AttributeValueConverter converter))
             {
                 propertyInfo.SetValue(element, converter(element, value), null);
                 return true;
@@ -366,8 +361,7 @@ namespace Gwen.Net.Xml
                 Type[] ga = eventInfo.EventHandlerType.GetGenericArguments();
                 if (ga.Length == 1)
                 {
-                    EventHandlerConverter converter;
-                    if (m_EventHandlerConverters.TryGetValue(ga[0], out converter))
+                    if (m_EventHandlerConverters.TryGetValue(ga[0], out EventHandlerConverter converter))
                     {
                         eventInfo.AddEventHandler(element, converter(eventInfo.Name, value));
                         return true;
@@ -496,8 +490,7 @@ namespace Gwen.Net.Xml
         /// <returns></returns>
         public static Dictionary<string, MemberInfo> GetAttributes(string element)
         {
-            ElementDef elementDef;
-            if (m_ElementHandlers.TryGetValue(element, out elementDef))
+            if (m_ElementHandlers.TryGetValue(element, out ElementDef elementDef))
             {
                 Dictionary<string, MemberInfo> attributes = new Dictionary<string, MemberInfo>();
 
@@ -535,14 +528,13 @@ namespace Gwen.Net.Xml
 
             public MemberInfo GetAttribute(string name)
             {
-                MemberInfo mi;
-                if (m_Attributes.TryGetValue(name, out mi))
+                if (m_Attributes.TryGetValue(name, out MemberInfo mi))
                     return mi;
                 else
                     return null;
             }
 
-            private Dictionary<string, MemberInfo> m_Attributes = new Dictionary<string, MemberInfo>();
+            private readonly Dictionary<string, MemberInfo> m_Attributes = new Dictionary<string, MemberInfo>();
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using Gwen.Net;
 using Gwen.Net.Control;
 using Gwen.Net.RichText;
 
@@ -8,7 +7,7 @@ namespace Gwen.Net.Tests.Components
     [UnitTest(Category = "Non-Interactive", Order = 102)]
     public class RichLabelTest : GUnit
     {
-        private Font f1, f2, f3, f4, f5;
+        private readonly Font f1, f2, f3, f4, f5;
 
         public RichLabelTest(ControlBase parent) : base(parent)
         {

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Gwen.Net.Control.Internal;
 using Gwen.Net.Control.Layout;
 

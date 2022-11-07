@@ -1,18 +1,18 @@
 ﻿using System;
-using Gwen.Net.Input;
 using Gwen.Net.Control.Internal;
+using Gwen.Net.Input;
 
 namespace Gwen.Net.Control
 {
     [Xml.XmlControl]
     public class MultilineTextBox : ScrollControl
     {
-        private MultilineText m_Text;
+        private readonly MultilineText m_Text;
 
         private Point m_CursorPos;
         private Point m_CursorEnd;
 
-        private bool m_SelectAll;
+        private readonly bool m_SelectAll;
 
         protected Rectangle m_CaretBounds;
 

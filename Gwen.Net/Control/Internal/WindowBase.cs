@@ -16,7 +16,7 @@ namespace Gwen.Net.Control.Internal
     public abstract class WindowBase : ResizableControl
     {
         private bool m_DeleteOnClose;
-        private ControlBase m_RealParent;
+        private readonly ControlBase m_RealParent;
         private StartPosition m_StartPosition = StartPosition.Manual;
 
         protected Dragger m_DragBar;

@@ -13,7 +13,7 @@ namespace Gwen.Net.Xml
     /// </summary>
     public abstract class Component : IDisposable
     {
-        private static Dictionary<string, ComponentDef> m_registerdComponents = new Dictionary<string, ComponentDef>();
+        private static readonly Dictionary<string, ComponentDef> m_registerdComponents = new Dictionary<string, ComponentDef>();
 
         private ControlBase m_View;
 
@@ -102,8 +102,7 @@ namespace Gwen.Net.Xml
         /// <returns>Created instance of the component.</returns>
         public static Component Create(string name, ControlBase parent, params object[] data)
         {
-            ComponentDef compDef;
-            if (m_registerdComponents.TryGetValue(name, out compDef))
+            if (m_registerdComponents.TryGetValue(name, out ComponentDef compDef))
             {
                 Component component;
                 if (compDef.Data != null)
@@ -273,8 +272,7 @@ namespace Gwen.Net.Xml
 
         private static ControlBase ElementHandler(Parser parser, Type type, ControlBase parent)
         {
-            ComponentDef compDef;
-            if (m_registerdComponents.TryGetValue(parser.Name, out compDef))
+            if (m_registerdComponents.TryGetValue(parser.Name, out ComponentDef compDef))
             {
                 Component component;
                 if (compDef.Data != null)

@@ -1,6 +1,6 @@
 ﻿using System;
-using Gwen.Net.Control.Layout;
 using Gwen.Net.Control.Internal;
+using Gwen.Net.Control.Layout;
 
 namespace Gwen.Net.Control
 {
@@ -119,8 +119,7 @@ namespace Gwen.Net.Control
         /// <returns>True if the text is allowed.</returns>
         protected override bool IsTextAllowed(string str)
         {
-            float d;
-            if (!float.TryParse(str, out d))
+            if (!float.TryParse(str, out float d))
                 return false;
             if (d < m_Min) return false;
             if (d > m_Max) return false;

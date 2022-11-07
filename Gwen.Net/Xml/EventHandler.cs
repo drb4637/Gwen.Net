@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Linq;
 
 namespace Gwen.Net.Xml
 {
@@ -11,9 +9,9 @@ namespace Gwen.Net.Xml
     /// <typeparam name="T">Type of event arguments.</typeparam>
     public class XmlEventHandler<T> where T : System.EventArgs
     {
-        private string m_eventName;
-        private string m_handlerName;
-        private Type[] m_paramsType = new Type[] { typeof(Gwen.Net.Control.ControlBase), typeof(T) };
+        private readonly string m_eventName;
+        private readonly string m_handlerName;
+        private readonly Type[] m_paramsType = new Type[] { typeof(Gwen.Net.Control.ControlBase), typeof(T) };
 
         public XmlEventHandler(string handlerName, string eventName)
         {

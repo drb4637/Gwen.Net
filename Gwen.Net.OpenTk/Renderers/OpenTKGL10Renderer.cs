@@ -23,7 +23,7 @@ namespace Gwen.Net.OpenTk.Renderers
         private bool wasBlendEnabled, wasTexture2DEnabled, wasDepthTestEnabled;
         private int prevBlendSrc, prevBlendDst, prevAlphaFunc;
         private float prevAlphaRef;
-        private bool restoreRenderState;
+        private readonly bool restoreRenderState;
 
         public OpenTKGL10Renderer(bool restoreRenderState = true)
             : base()
@@ -138,7 +138,7 @@ namespace Gwen.Net.OpenTk.Renderers
                         return;
                     }
 
-                    float dv = (float)delta / (float)oldHeight;
+                    float dv = delta / (float)oldHeight;
 
                     v1 += dv * (v2 - v1);
                 }
@@ -155,7 +155,7 @@ namespace Gwen.Net.OpenTk.Renderers
                         return;
                     }
 
-                    float dv = (float)delta / (float)oldHeight;
+                    float dv = delta / (float)oldHeight;
 
                     v2 -= dv * (v2 - v1);
                 }
@@ -172,7 +172,7 @@ namespace Gwen.Net.OpenTk.Renderers
                         return;
                     }
 
-                    float du = (float)delta / (float)oldWidth;
+                    float du = delta / (float)oldWidth;
 
                     u1 += du * (u2 - u1);
                 }
@@ -189,7 +189,7 @@ namespace Gwen.Net.OpenTk.Renderers
                         return;
                     }
 
-                    float du = (float)delta / (float)oldWidth;
+                    float du = delta / (float)oldWidth;
 
                     u2 -= du * (u2 - u1);
                 }

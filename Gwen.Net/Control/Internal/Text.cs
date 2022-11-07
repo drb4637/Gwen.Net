@@ -1,7 +1,6 @@
 ﻿//#define DEBUG_TEXT_MEASURE
 
 using System;
-using Gwen.Net.Control;
 
 namespace Gwen.Net.Control.Internal
 {

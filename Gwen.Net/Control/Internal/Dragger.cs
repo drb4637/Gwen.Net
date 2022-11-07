@@ -1,5 +1,4 @@
 ﻿using System;
-using Gwen.Net.Control;
 using Gwen.Net.Input;
 
 namespace Gwen.Net.Control.Internal

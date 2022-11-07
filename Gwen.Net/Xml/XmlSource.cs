@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Text;
 using static Gwen.Net.Platform.GwenPlatform;
 
@@ -37,8 +36,8 @@ namespace Gwen.Net.Xml
             return stream;
         }
 
-        private string m_xml;
-        private Encoding m_encoding;
+        private readonly string m_xml;
+        private readonly Encoding m_encoding;
     }
 
     /// <summary>
@@ -56,6 +55,6 @@ namespace Gwen.Net.Xml
             return GetFileStream(m_fileName, false);
         }
 
-        private string m_fileName;
+        private readonly string m_fileName;
     }
 }

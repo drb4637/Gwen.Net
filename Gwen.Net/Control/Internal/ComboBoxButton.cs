@@ -1,13 +1,11 @@
-﻿using System;
-
-namespace Gwen.Net.Control.Internal
+﻿namespace Gwen.Net.Control.Internal
 {
     /// <summary>
     /// Editable combobox button.
     /// </summary>
     internal class ComboBoxButton : ButtonBase
     {
-        private EditableComboBox m_ComboBox;
+        private readonly EditableComboBox m_ComboBox;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ComboBoxButton"/> class.

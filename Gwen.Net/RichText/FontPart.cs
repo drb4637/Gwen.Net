@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace Gwen.Net.RichText
+﻿namespace Gwen.Net.RichText
 {
     public class FontPart : Part
     {
-        private Font m_Font;
+        private readonly Font m_Font;
 
         public FontPart(Font font = null)
         {

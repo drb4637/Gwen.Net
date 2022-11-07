@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Gwen.Net.Control.Internal;
+﻿using Gwen.Net.Control.Internal;
 
 namespace Gwen.Net.Control
 {

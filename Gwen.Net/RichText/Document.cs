@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Gwen.Net.RichText
 {
     public class Document
     {
-        private List<Paragraph> m_Paragraphs = new List<Paragraph>();
+        private readonly List<Paragraph> m_Paragraphs = new List<Paragraph>();
 
         public List<Paragraph> Paragraphs { get { return m_Paragraphs; } }
 

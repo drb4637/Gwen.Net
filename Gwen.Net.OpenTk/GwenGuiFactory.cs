@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using OpenTK.Windowing.Desktop;
+﻿using OpenTK.Windowing.Desktop;
 
 namespace Gwen.Net.OpenTk
 {

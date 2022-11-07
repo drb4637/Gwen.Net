@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace Gwen.Net.RichText
+﻿namespace Gwen.Net.RichText
 {
     public class LinkPart : TextPart
     {
-        private string m_Link;
+        private readonly string m_Link;
         private Color? m_HoverColor = null;
-        private Font m_HoverFont = null;
+        private readonly Font m_HoverFont = null;
 
         public string Link { get { return m_Link; } }
         public Color? HoverColor { get { return m_HoverColor; } }

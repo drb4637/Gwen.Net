@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Gwen.Net.RichText.KnuthPlass
 {
@@ -16,7 +15,6 @@ namespace Gwen.Net.RichText.KnuthPlass
             List<Node> nodes = new List<Node>();
 
             Font font = m_DefaultFont;
-            int width, height;
 
             for (int partIndex = 0; partIndex < paragraph.Parts.Count; partIndex++)
             {
@@ -33,7 +31,7 @@ namespace Gwen.Net.RichText.KnuthPlass
                     if (word[0] == ' ')
                         continue;
 
-                    MeasureText(font, word, out width, out height);
+                    MeasureText(font, word, out int width, out int height);
 
                     nodes.Add(new BoxNode(width, word, part, height));
 

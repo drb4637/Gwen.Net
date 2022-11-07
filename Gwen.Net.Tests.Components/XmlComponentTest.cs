@@ -28,7 +28,7 @@ namespace Gwen.Net.Tests.Components
                 m_unit.UnitPrint(sender.Name + ": ValueChanged " + args.Value);
             }
 
-            private GUnit m_unit;
+            private readonly GUnit m_unit;
 
             private static readonly string m_Xml = @"<?xml version='1.0' encoding='UTF-8'?>
 			<GridLayout Width='400' ColumnWidths='Auto, 100%'>

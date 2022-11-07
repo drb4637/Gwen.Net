@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gwen.Net.Control.Layout
+﻿namespace Gwen.Net.Control.Layout
 {
     /// <summary>
     /// Dock child controls into the edges of this control. This is controlled by

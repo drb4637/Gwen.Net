@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gwen.Net.Control.Layout
+﻿namespace Gwen.Net.Control.Layout
 {
     /// <summary>
     /// Arrange child controls into a row or a column.

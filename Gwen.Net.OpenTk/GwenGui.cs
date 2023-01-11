@@ -1,4 +1,5 @@
-﻿using Gwen.Net.Control;
+﻿using System;
+using Gwen.Net.Control;
 using Gwen.Net.OpenTk.Exceptions;
 using Gwen.Net.OpenTk.Input;
 using Gwen.Net.OpenTk.Platform;
@@ -31,13 +32,13 @@ namespace Gwen.Net.OpenTk
             Settings = settings;
         }
 
-        public void Load(TexturedBase UniqueTexture = null)
+        public void Load(Func<(string skinFileDefault, OpenTKRendererBase Renderer), TexturedBase> UniqueTextureInjection = null)
         {
             GwenPlatform.Init(new NetCorePlatform(SetCursor));
             AttachToWindowEvents();
             renderer = ResolveRenderer(Settings.Renderer);
 
-            if (UniqueTexture == null)
+            if (UniqueTextureInjection == null)
             {
                 skin = new TexturedBase(renderer, Settings.SkinFile)
                 {
@@ -46,7 +47,7 @@ namespace Gwen.Net.OpenTk
             }
             else 
             {
-                skin = UniqueTexture;
+                skin = UniqueTextureInjection((Settings.SkinFile, renderer));
             }
 
             canvas = new Canvas(skin);

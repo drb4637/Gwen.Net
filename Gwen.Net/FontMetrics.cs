@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gwen.Net
+﻿namespace Gwen.Net
 {
     /// <summary>
     /// Font metrics.

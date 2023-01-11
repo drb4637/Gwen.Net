@@ -8,9 +8,9 @@ namespace Gwen.Net.Anim
     {
         private bool m_Started;
         private bool m_Finished;
-        private float m_Start;
-        private float m_End;
-        private float m_Ease;
+        private readonly float m_Start;
+        private readonly float m_End;
+        private readonly float m_Ease;
 
         public override bool Finished { get { return m_Finished; } }
 

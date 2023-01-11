@@ -10,7 +10,7 @@ namespace Gwen.Net.Control.Internal
     [Xml.XmlControl]
     public class MultilineText : ControlBase
     {
-        private List<Text> m_TextLines = new List<Text>();
+        private readonly List<Text> m_TextLines = new List<Text>();
 
         private Font m_Font;
 

@@ -1,8 +1,7 @@
 ﻿using System;
-using Gwen.Net;
-using Gwen.Net.Xml;
 using Gwen.Net.Control;
 using Gwen.Net.Control.Layout;
+using Gwen.Net.Xml;
 
 namespace Gwen.Net.Tests.Components
 {
@@ -84,7 +83,7 @@ namespace Gwen.Net.Tests.Components
 
             public void OnRowSelected(ControlBase sender, ItemSelectedEventArgs args)
             {
-                m_unit.UnitPrint(sender.Name + ": RowSelected " + ((ListBoxRow)((ItemSelectedEventArgs)args).SelectedItem).Text);
+                m_unit.UnitPrint(sender.Name + ": RowSelected " + ((ListBoxRow)args.SelectedItem).Text);
             }
 
             public void OnSelected(ControlBase sender, EventArgs args)
@@ -97,7 +96,7 @@ namespace Gwen.Net.Tests.Components
                 m_unit.UnitPrint(sender.Name + ": Closed ");
             }
 
-            private GUnit m_unit;
+            private readonly GUnit m_unit;
         }
 
         private class InterfaceTestComponent : Component
@@ -180,7 +179,7 @@ namespace Gwen.Net.Tests.Components
                 }
             }
 
-            private GUnit m_unit;
+            private readonly GUnit m_unit;
         }
 
         void OpenMethodWindow(ControlBase control, EventArgs args)

@@ -8,7 +8,7 @@ namespace Gwen.Net.Control
     /// </summary>
     public class CollapsibleList : ScrollControl
     {
-        private VerticalLayout m_Items;
+        private readonly VerticalLayout m_Items;
 
         /// <summary>
         /// Invoked when an entry has been selected.

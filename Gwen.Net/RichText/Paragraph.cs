@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Gwen.Net.RichText
 {
     public class Paragraph
     {
-        private List<Part> m_Parts = new List<Part>();
+        private readonly List<Part> m_Parts = new List<Part>();
 
         private Margin m_Margin;
-        private int m_FirstIndent;
-        private int m_RemainigIndent;
+        private readonly int m_FirstIndent;
+        private readonly int m_RemainigIndent;
 
         public List<Part> Parts { get { return m_Parts; } }
 

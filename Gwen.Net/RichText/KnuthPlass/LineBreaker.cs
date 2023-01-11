@@ -25,9 +25,9 @@ namespace Gwen.Net.RichText.KnuthPlass
 
         private Sum m_Sum = new Sum(0, 0, 0);
 
-        private LinkedList<BreakPoint> m_ActiveNodes = new LinkedList<BreakPoint>();
+        private readonly LinkedList<BreakPoint> m_ActiveNodes = new LinkedList<BreakPoint>();
 
-        private Formatter m_Formatter;
+        private readonly Formatter m_Formatter;
 
         public LineBreaker(Renderer.RendererBase renderer, Font defaultFont)
             : base(renderer, defaultFont)

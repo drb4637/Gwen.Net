@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gwen.Net.Control.Internal
+﻿namespace Gwen.Net.Control.Internal
 {
     /// <summary>
     /// Modal control for windows.

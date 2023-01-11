@@ -153,7 +153,7 @@ namespace Gwen.Net.OpenTk.Renderers
                         return;
                     }
 
-                    float dv = (float)delta / (float)oldHeight;
+                    float dv = delta / (float)oldHeight;
 
                     v1 += dv * (v2 - v1);
                 }
@@ -170,7 +170,7 @@ namespace Gwen.Net.OpenTk.Renderers
                         return;
                     }
 
-                    float dv = (float)delta / (float)oldHeight;
+                    float dv = delta / (float)oldHeight;
 
                     v2 -= dv * (v2 - v1);
                 }
@@ -187,7 +187,7 @@ namespace Gwen.Net.OpenTk.Renderers
                         return;
                     }
 
-                    float du = (float)delta / (float)oldWidth;
+                    float du = delta / (float)oldWidth;
 
                     u1 += du * (u2 - u1);
                 }
@@ -204,7 +204,7 @@ namespace Gwen.Net.OpenTk.Renderers
                         return;
                     }
 
-                    float du = (float)delta / (float)oldWidth;
+                    float du = delta / (float)oldWidth;
 
                     u2 -= du * (u2 - u1);
                 }
@@ -282,7 +282,7 @@ namespace Gwen.Net.OpenTk.Renderers
         {
             GL.Viewport(0, 0, width, height);
             GL.UseProgram(shader.Program);
-            GL.Uniform2(shader.Uniforms["uScreenSize"], (float)width, (float)height);
+            GL.Uniform2(shader.Uniforms["uScreenSize"], width, (float)height);
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = 1)]

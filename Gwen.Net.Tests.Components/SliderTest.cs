@@ -1,5 +1,4 @@
 ﻿using System;
-using Gwen.Net;
 using Gwen.Net.Control;
 using Gwen.Net.Control.Internal;
 using Gwen.Net.Control.Layout;

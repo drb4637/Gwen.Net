@@ -34,7 +34,7 @@ namespace Gwen.Net.Xml
             return newValues;
         }
 
-        private static Dictionary<Type, EventHandlerConverter> m_EventHandlerConverters = new Dictionary<Type, EventHandlerConverter>
+        private static readonly Dictionary<Type, EventHandlerConverter> m_EventHandlerConverters = new Dictionary<Type, EventHandlerConverter>
         {
             { typeof(EventArgs), (attribute, value) =>
                 {
@@ -58,12 +58,11 @@ namespace Gwen.Net.Xml
             },
         };
 
-        private static Dictionary<Type, AttributeValueConverter> m_AttributeValueConverters = new Dictionary<Type, AttributeValueConverter>
+        private static readonly Dictionary<Type, AttributeValueConverter> m_AttributeValueConverters = new Dictionary<Type, AttributeValueConverter>
         {
             { typeof(bool), (element, value) =>
                 {
-                    bool result;
-                    if (bool.TryParse(value, out result))
+                    if (bool.TryParse(value, out bool result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as boolean failed.");
@@ -71,8 +70,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(int), (element, value) =>
                 {
-                    int result;
-                    if (Int32.TryParse(value, NumberStyles.Integer, Parser.NumberFormatInfo, out result))
+                    if (Int32.TryParse(value, NumberStyles.Integer, Parser.NumberFormatInfo, out int result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as integer failed.");
@@ -80,8 +78,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(float), (element, value) =>
                 {
-                    float result;
-                    if (Single.TryParse(value, NumberStyles.Float, Parser.NumberFormatInfo, out result))
+                    if (Single.TryParse(value, NumberStyles.Float, Parser.NumberFormatInfo, out float result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as single failed.");
@@ -104,15 +101,13 @@ namespace Gwen.Net.Xml
                 {
                     if (value.IndexOf(Parser.NumberFormatInfo.NumberDecimalSeparator) >= 0)
                     {
-                        float valueFloat;
-                        if (Single.TryParse(value, NumberStyles.Float, Parser.NumberFormatInfo, out valueFloat))
+                        if (Single.TryParse(value, NumberStyles.Float, Parser.NumberFormatInfo, out float valueFloat))
                         {
                             return valueFloat;
                         }
                     }
 
-                    int valueInt32;
-                    if (Int32.TryParse(value, NumberStyles.Integer, Parser.NumberFormatInfo, out valueInt32))
+                    if (Int32.TryParse(value, NumberStyles.Integer, Parser.NumberFormatInfo, out int valueInt32))
                     {
                         return valueInt32;
                     }
@@ -224,8 +219,7 @@ namespace Gwen.Net.Xml
 
                         if (hex != null)
                         {
-                            uint color;
-                            if (UInt32.TryParse(hex, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out color))
+                            if (UInt32.TryParse(hex, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out uint color))
                                 return new Color(color);
                             else
                                 throw new System.Xml.XmlException("Attribute value error. Parsing the value as color failed.");
@@ -239,8 +233,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(Alignment), (element, value) =>
                 {
-                    Alignment result;
-                    if (Enum.TryParse<Alignment>(value, out result))
+                    if (Enum.TryParse<Alignment>(value, out Alignment result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as alignment failed.");
@@ -248,8 +241,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(HorizontalAlignment), (element, value) =>
                 {
-                    HorizontalAlignment result;
-                    if (Enum.TryParse<HorizontalAlignment>(value, out result))
+                    if (Enum.TryParse<HorizontalAlignment>(value, out HorizontalAlignment result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as horizontal alignment failed.");
@@ -257,8 +249,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(VerticalAlignment), (element, value) =>
                 {
-                    VerticalAlignment result;
-                    if (Enum.TryParse<VerticalAlignment>(value, out result))
+                    if (Enum.TryParse<VerticalAlignment>(value, out VerticalAlignment result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as vertical alignment failed.");
@@ -266,8 +257,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(Dock), (element, value) =>
                 {
-                    Dock result;
-                    if (Enum.TryParse<Dock>(value, out result))
+                    if (Enum.TryParse<Dock>(value, out Dock result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as dock failed.");
@@ -275,8 +265,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(Control.ImageAlign), (element, value) =>
                 {
-                    Control.ImageAlign result;
-                    if (Enum.TryParse<Control.ImageAlign>(value, out result))
+                    if (Enum.TryParse<Control.ImageAlign>(value, out Control.ImageAlign result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as image alignment failed.");
@@ -284,8 +273,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(Control.BorderType), (element, value) =>
                 {
-                    Control.BorderType result;
-                    if (Enum.TryParse<Control.BorderType>(value, out result))
+                    if (Enum.TryParse<Control.BorderType>(value, out Control.BorderType result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as border type failed.");
@@ -293,8 +281,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(Control.StartPosition), (element, value) =>
                 {
-                    Control.StartPosition result;
-                    if (Enum.TryParse<Control.StartPosition>(value, out result))
+                    if (Enum.TryParse<Control.StartPosition>(value, out Control.StartPosition result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as start position failed.");
@@ -302,8 +289,7 @@ namespace Gwen.Net.Xml
             },
             { typeof(Control.Resizing), (element, value) =>
                 {
-                    Control.Resizing result;
-                    if (Enum.TryParse<Control.Resizing>(value, out result))
+                    if (Enum.TryParse<Control.Resizing>(value, out Control.Resizing result))
                         return result;
                     else
                         throw new System.Xml.XmlException("Attribute value error. Parsing the value as resizing failed.");
@@ -370,16 +356,14 @@ namespace Gwen.Net.Xml
                         }
                         else if (cellSize.IndexOf('%') > 0)
                         {
-                            float v;
-                            if (Single.TryParse(cellSize.Substring(0, cellSize.IndexOf('%')), out v))
+                            if (Single.TryParse(cellSize.Substring(0, cellSize.IndexOf('%')), out float v))
                                 sizes[index++] = v / 100.0f;
                             else
                                 throw new System.Xml.XmlException("Attribute value error. Parsing the value as cell size failed.");
                         }
                         else
                         {
-                            float v;
-                            if (Single.TryParse(cellSize, out v))
+                            if (Single.TryParse(cellSize, out float v))
                                 sizes[index++] = v;
                             else
                                 throw new System.Xml.XmlException("Attribute value error. Parsing the value as cell size failed.");
@@ -391,6 +375,6 @@ namespace Gwen.Net.Xml
             },
         };
 
-        private static char[] m_fontValueSeparator = { ';' };
+        private static readonly char[] m_fontValueSeparator = { ';' };
     }
 }

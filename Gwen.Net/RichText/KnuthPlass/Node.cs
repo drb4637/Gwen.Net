@@ -6,8 +6,8 @@ namespace Gwen.Net.RichText.KnuthPlass
 
     internal abstract class Node
     {
-        private NodeType m_Type;
-        private int m_Width;
+        private readonly NodeType m_Type;
+        private readonly int m_Width;
 
         public NodeType Type { get { return m_Type; } }
         public int Width { get { return m_Width; } }
@@ -21,9 +21,9 @@ namespace Gwen.Net.RichText.KnuthPlass
 
     internal class BoxNode : Node
     {
-        private string m_Value;
-        private int m_Height;
-        private Part m_Part;
+        private readonly string m_Value;
+        private readonly int m_Height;
+        private readonly Part m_Part;
 
         public string Value { get { return m_Value; } }
         public int Height { get { return m_Height; } }
@@ -47,8 +47,8 @@ namespace Gwen.Net.RichText.KnuthPlass
 
     internal class GlueNode : Node
     {
-        private int m_Stretch;
-        private int m_Shrink;
+        private readonly int m_Stretch;
+        private readonly int m_Shrink;
 
         public int Stretch { get { return m_Stretch; } }
         public int Shrink { get { return m_Shrink; } }
@@ -70,8 +70,8 @@ namespace Gwen.Net.RichText.KnuthPlass
 
     internal class PenaltyNode : Node
     {
-        private int m_Penalty;
-        private int m_Flagged;
+        private readonly int m_Penalty;
+        private readonly int m_Flagged;
 
         public int Penalty { get { return m_Penalty; } }
         public int Flagged { get { return m_Flagged; } }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gwen.Net.Control.Property
+﻿namespace Gwen.Net.Control.Property
 {
     /// <summary>
     /// Text property.

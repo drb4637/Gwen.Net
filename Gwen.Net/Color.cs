@@ -79,8 +79,7 @@ namespace Gwen.Net
         /// <returns>Color if named value exists, color black otherwise.</returns>
         public static Color FromName(string name)
         {
-            Color color;
-            if (m_NamedColors.TryGetValue(name, out color))
+            if (m_NamedColors.TryGetValue(name, out Color color))
                 return color;
             else
                 return Black;

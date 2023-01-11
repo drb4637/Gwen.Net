@@ -26,8 +26,7 @@ namespace Gwen.Net.Control
         {
             if (str == "" || str == "-")
                 return true; // annoying if single - is not allowed
-            float d;
-            return float.TryParse(str, out d);
+            return float.TryParse(str, out float d);
         }
 
         /// <summary>

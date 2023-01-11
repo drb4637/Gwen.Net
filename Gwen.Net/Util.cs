@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace Gwen.Net
 {
@@ -67,9 +66,9 @@ namespace Gwen.Net
         {
             HSV hsv = new HSV();
 
-            float r = (float)color.R / 255.0f;
-            float g = (float)color.G / 255.0f;
-            float b = (float)color.B / 255.0f;
+            float r = color.R / 255.0f;
+            float g = color.G / 255.0f;
+            float b = color.B / 255.0f;
 
             float max = Math.Max(r, Math.Max(g, b));
             float min = Math.Min(r, Math.Min(g, b));

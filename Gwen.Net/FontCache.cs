@@ -22,8 +22,7 @@ namespace Gwen.Net
         private Font InternalGetFont(Renderer.RendererBase renderer, string faceName, int size, FontStyle style)
         {
             string id = String.Format("{0};{1};{2}", faceName, size, (int)style);
-            Font font;
-            if (!m_FontCache.TryGetValue(id, out font))
+            if (!m_FontCache.TryGetValue(id, out Font font))
             {
                 font = new Font(renderer, faceName, size);
 
@@ -64,6 +63,6 @@ namespace Gwen.Net
 
         private static FontCache m_Instance = null;
 
-        private Dictionary<string, Font> m_FontCache = new Dictionary<string, Font>();
+        private readonly Dictionary<string, Font> m_FontCache = new Dictionary<string, Font>();
     }
 }

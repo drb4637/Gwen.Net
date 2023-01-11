@@ -2,8 +2,8 @@
 
 using System;
 using System.Collections.Generic;
-using Gwen.Net.RichText;
 using Gwen.Net.Control.Internal;
+using Gwen.Net.RichText;
 
 namespace Gwen.Net.Control
 {

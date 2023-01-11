@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gwen.Net.Control
+﻿namespace Gwen.Net.Control
 {
     /// <summary>
     /// Image container.
@@ -51,10 +49,10 @@ namespace Gwen.Net.Control
                 if (m_Texture == null)
                     return;
 
-                m_uv[0] = (float)value.X / (float)m_Texture.Width;
-                m_uv[1] = (float)value.Y / (float)m_Texture.Height;
-                m_uv[2] = m_uv[0] + (float)value.Width / (float)m_Texture.Width;
-                m_uv[3] = m_uv[1] + (float)value.Height / (float)m_Texture.Height;
+                m_uv[0] = value.X / (float)m_Texture.Width;
+                m_uv[1] = value.Y / (float)m_Texture.Height;
+                m_uv[2] = m_uv[0] + value.Width / (float)m_Texture.Width;
+                m_uv[3] = m_uv[1] + value.Height / (float)m_Texture.Height;
             }
         }
 

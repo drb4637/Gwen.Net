@@ -1,5 +1,4 @@
 ﻿using System;
-using Gwen.Net;
 using Gwen.Net.Control;
 
 namespace Gwen.Net.Tests.Components
@@ -7,7 +6,7 @@ namespace Gwen.Net.Tests.Components
     [UnitTest(Category = "Standard", Order = 208)]
     public class MenuTest : GUnit
     {
-        private Menu m_ContextMenu;
+        private readonly Menu m_ContextMenu;
 
         public MenuTest(ControlBase parent)
             : base(parent)

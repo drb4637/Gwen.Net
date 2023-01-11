@@ -3,7 +3,6 @@ using Gwen.Net.Control;
 using Gwen.Net.Input;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
-using OpenTK.Windowing.Common.Input;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using Key = OpenTK.Windowing.GraphicsLibraryFramework.Keys;
 

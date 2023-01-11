@@ -1,6 +1,4 @@
-﻿using System.IO;
-
-namespace Gwen.Net.OpenTk
+﻿namespace Gwen.Net.OpenTk
 {
     public class GwenGuiSettings
     {

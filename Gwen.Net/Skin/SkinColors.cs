@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gwen.Net.Skin
+﻿namespace Gwen.Net.Skin
 {
     /// <summary>
     /// UI colors used by skins.

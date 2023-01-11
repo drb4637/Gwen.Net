@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Gwen.Net.Skin.Texturing
+﻿namespace Gwen.Net.Skin.Texturing
 {
     /// <summary>
     /// Single textured element.

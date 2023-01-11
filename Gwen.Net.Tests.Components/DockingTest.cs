@@ -1,5 +1,4 @@
 ﻿using System;
-using Gwen.Net;
 using Gwen.Net.Control;
 using Gwen.Net.Control.Layout;
 
@@ -9,7 +8,7 @@ namespace Gwen.Net.Tests.Components
     public class DockingTest : GUnit
     {
         private readonly Font font;
-        private ControlBase outer;
+        private readonly ControlBase outer;
 
         public DockingTest(ControlBase parent)
             : base(parent)

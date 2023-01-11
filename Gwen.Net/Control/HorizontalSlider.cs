@@ -40,7 +40,7 @@ namespace Gwen.Net.Control
         protected override void OnMouseClickedLeft(int x, int y, bool down)
         {
             base.OnMouseClickedLeft(x, y, down);
-            m_SliderBar.MoveTo((int)(CanvasPosToLocal(new Point(x, y)).X - m_SliderBar.ActualWidth / 2), (this.ActualHeight - m_SliderBar.ActualHeight) / 2);
+            m_SliderBar.MoveTo(CanvasPosToLocal(new Point(x, y)).X - m_SliderBar.ActualWidth / 2, (this.ActualHeight - m_SliderBar.ActualHeight) / 2);
             m_SliderBar.InputMouseClickedLeft(x, y, down);
             OnMoved(m_SliderBar, EventArgs.Empty);
         }

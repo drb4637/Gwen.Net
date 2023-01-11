@@ -1,5 +1,4 @@
 ﻿using System;
-using Gwen.Net.Control.Layout;
 
 namespace Gwen.Net.Control
 {
@@ -11,7 +10,7 @@ namespace Gwen.Net.Control
     {
         private bool m_Selected;
 
-        private ListBox m_ListBox;
+        private readonly ListBox m_ListBox;
         public ListBox ListBox { get { return m_ListBox; } }
 
         /// <summary>

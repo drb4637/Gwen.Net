@@ -82,7 +82,7 @@ namespace Gwen.Net
             }
         }
 
-        private static List<Timer> m_Timers = new List<Timer>();
+        private static readonly List<Timer> m_Timers = new List<Timer>();
         private static float m_LastTime;
         private static bool m_Started;
 

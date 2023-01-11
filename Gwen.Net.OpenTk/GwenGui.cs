@@ -31,15 +31,24 @@ namespace Gwen.Net.OpenTk
             Settings = settings;
         }
 
-        public void Load()
+        public void Load(TexturedBase UniqueTexture = null)
         {
             GwenPlatform.Init(new NetCorePlatform(SetCursor));
             AttachToWindowEvents();
             renderer = ResolveRenderer(Settings.Renderer);
-            skin = new TexturedBase(renderer, Settings.SkinFile)
+
+            if (UniqueTexture == null)
             {
-                DefaultFont = new Font(renderer, "Calibri", 11)
-            };
+                skin = new TexturedBase(renderer, Settings.SkinFile)
+                {
+                    DefaultFont = new Font(renderer, "Calibri", 11)
+                };
+            }
+            else 
+            {
+                skin = UniqueTexture;
+            }
+
             canvas = new Canvas(skin);
             input = new OpenTkInputTranslator(canvas);
 

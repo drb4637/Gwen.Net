@@ -1,5 +1,6 @@
 ﻿using System;
 using Gwen.Net.Control;
+using Gwen.Net.Skin;
 using OpenTK.Mathematics;
 
 namespace Gwen.Net.OpenTk
@@ -8,7 +9,7 @@ namespace Gwen.Net.OpenTk
     {
         ControlBase Root { get; }
 
-        void Load();
+        void Load(TexturedBase UniqueTexture = null);
 
         void Resize(Vector2i newSize);
 

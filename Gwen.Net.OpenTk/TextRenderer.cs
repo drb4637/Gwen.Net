@@ -24,7 +24,7 @@ namespace Gwen.Net.OpenTk
 
             bitmap = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             graphics = Graphics.FromImage(bitmap);
-            graphics.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+            graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
             graphics.Clear(System.Drawing.Color.Transparent);
             texture = new Texture(renderer)
             {

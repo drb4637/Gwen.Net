@@ -102,7 +102,7 @@ namespace Gwen.Net
         /// </summary>
         public void Dispose()
         {
-            m_Renderer.FreeFont(this);
+            m_Renderer?.FreeFont(this);
             GC.SuppressFinalize(this);
         }
 

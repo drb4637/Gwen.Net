@@ -129,7 +129,7 @@ namespace Gwen.Net.Control
         public Label(ControlBase parent) : base(parent)
         {
             m_Text = new Text(this);
-            //m_Text.Font = Skin.DefaultFont;
+            m_Text.Font = Skin.DefaultFont;
 
             m_AutoSizeToContent = true;
 
@@ -174,7 +174,6 @@ namespace Gwen.Net.Control
                 rect.Y = innerSize.Height - m_Text.MeasuredSize.Height;
 
             rect.Offset(m_TextPadding + Padding);
-
             m_Text.DoArrange(rect);
 
             return finalSize;

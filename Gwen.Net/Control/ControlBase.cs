@@ -1339,7 +1339,7 @@ namespace Gwen.Net.Control
         /// <param name="down">If set to <c>true</c> mouse button is down.</param>
         protected virtual void OnMouseClickedLeft(int x, int y, bool down)
         {
-            if (down && Clicked != null)
+            if (down && Clicked != null && !IsDisabled)
                 Clicked(this, new ClickedEventArgs(x, y, down));
         }
 
@@ -1359,7 +1359,7 @@ namespace Gwen.Net.Control
         /// <param name="down">If set to <c>true</c> mouse button is down.</param>
         protected virtual void OnMouseClickedRight(int x, int y, bool down)
         {
-            if (down && RightClicked != null)
+            if (down && RightClicked != null && !IsDisabled)
                 RightClicked(this, new ClickedEventArgs(x, y, down));
         }
 

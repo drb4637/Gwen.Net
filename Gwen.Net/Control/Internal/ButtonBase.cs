@@ -128,7 +128,7 @@ namespace Gwen.Net.Control.Internal
             {
                 IsDepressed = true;
                 InputHandler.MouseFocus = this;
-                if (Pressed != null)
+                if (Pressed != null && !IsDisabled)
                     Pressed.Invoke(this, EventArgs.Empty);
             }
             else
@@ -140,7 +140,7 @@ namespace Gwen.Net.Control.Internal
 
                 IsDepressed = false;
                 InputHandler.MouseFocus = null;
-                if (Released != null)
+                if (Released != null && !IsDisabled)
                     Released.Invoke(this, EventArgs.Empty);
             }
 

@@ -142,6 +142,7 @@ namespace Gwen.Net.Control
             Padding = Padding.Three;
 
             m_ScrollArea = new ScrollArea(this);
+            m_ScrollArea.VerticalAlignment = VerticalAlignment.Center;
             m_ScrollArea.Dock = Dock.Fill;
             m_ScrollArea.EnableScroll(true, false);
 

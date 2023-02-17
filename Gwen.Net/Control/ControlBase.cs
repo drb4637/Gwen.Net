@@ -725,6 +725,8 @@ namespace Gwen.Net.Control
         public void Enable()
         {
             IsDisabled = false;
+
+            Redraw();
         }
 
         /// <summary>
@@ -733,6 +735,8 @@ namespace Gwen.Net.Control
         public virtual void Disable()
         {
             IsDisabled = true;
+
+            Redraw();
         }
 
         /// <summary>

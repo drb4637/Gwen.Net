@@ -3,6 +3,18 @@ using Gwen.Net.Control.Internal;
 
 namespace Gwen.Net.Control
 {
+    public class TabChangedEventArgs : EventArgs
+    {
+        public ControlBase PrevPage { get; private set; }
+        public ControlBase CurPage { get; private set; }
+
+        public TabChangedEventArgs(ControlBase prevPage, ControlBase curPage)
+        {
+            PrevPage = prevPage;
+            CurPage = curPage;
+        }
+    }
+
     /// <summary>
     /// Control with multiple tabs that can be reordered and dragged.
     /// </summary>
@@ -26,6 +38,12 @@ namespace Gwen.Net.Control
         /// </summary>
         [Xml.XmlEvent]
         public event GwenEventHandler<EventArgs> TabRemoved;
+
+        /// <summary>
+        /// Invoked when the tab selection is changed.
+        /// </summary>
+        [Xml.XmlEvent]
+        public event GwenEventHandler<TabChangedEventArgs> TabChanged;
 
         /// <summary>
         /// Determines if tabs can be reordered by dragging.
@@ -182,9 +200,10 @@ namespace Gwen.Net.Control
             if (m_CurrentButton == button)
                 return;
 
+            ControlBase page2 = null;
             if (null != m_CurrentButton)
             {
-                ControlBase page2 = m_CurrentButton.Page;
+                page2 = m_CurrentButton.Page;
                 if (page2 != null)
                 {
                     page2.IsHidden = true;
@@ -196,6 +215,9 @@ namespace Gwen.Net.Control
             m_CurrentButton = button;
 
             page.IsHidden = false;
+
+            if (TabChanged != null)
+                TabChanged(this, new TabChangedEventArgs(page2, page));
         }
 
         protected override Size Arrange(Size finalSize)

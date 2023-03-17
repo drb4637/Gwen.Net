@@ -722,7 +722,7 @@ namespace Gwen.Net.Control
         /// <summary>
         /// Enables the control.
         /// </summary>
-        public void Enable()
+        public virtual void Enable()
         {
             IsDisabled = false;
 

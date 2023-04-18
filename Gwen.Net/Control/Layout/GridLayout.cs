@@ -95,7 +95,7 @@ namespace Gwen.Net.Control.Layout
                     m_TotalFixedSize.Width += (int)w;
             }
 
-            if (relTotalWidth > 1.0f)
+            if (Math.Round(relTotalWidth,5) > 1.0f)
                 throw new ArgumentException("Relative widths exceed total value of 1.0 (100%).");
 
             m_RequestedColumnWidths = widths;
@@ -236,9 +236,7 @@ namespace Gwen.Net.Control.Layout
                     float h = m_RequestedRowHeights[rowIndex];
                     if (h > 1.0f)
                     {
-                        if (m_RowHeights[rowIndex] < h)
-                            m_RowHeights[rowIndex] = (int)h;
-
+                        m_RowHeights[rowIndex] = (int)h;
                         m_TotalAutoFixedSize.Height += m_RowHeights[rowIndex];
                     }
                     else if (Single.IsNaN(h))

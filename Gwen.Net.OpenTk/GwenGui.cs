@@ -45,7 +45,7 @@ namespace Gwen.Net.OpenTk
                     DefaultFont = new Font(renderer, "Calibri", 11)
                 };
             }
-            else 
+            else
             {
                 skin = UniqueTextureInjection((Settings.SkinFile, renderer));
             }

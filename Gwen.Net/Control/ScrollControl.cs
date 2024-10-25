@@ -43,6 +43,24 @@ namespace Gwen.Net.Control
             }
         }
 
+        public int ScrollBarSize
+        {
+            set
+            {
+                m_VerticalScrollBar.Width = value;
+                m_HorizontalScrollBar.Height = value;
+            }
+        }
+
+        public float NudgeAmount
+        {
+            set
+            {
+                m_VerticalScrollBar.NudgeAmount = value;
+                m_HorizontalScrollBar.NudgeAmount = value;
+            }
+        }
+
         public override ControlBase Content
         {
             get { return m_ScrollArea.Content; }

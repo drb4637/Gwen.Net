@@ -368,6 +368,11 @@ namespace Gwen.Net.Control
         public virtual bool IsHovered { get { return InputHandler.HoveredControl == this; } }
 
         /// <summary>
+        /// returns the disposed state of the control
+        /// </summary>
+        public bool IsDisposed { get { return this.m_Disposed; } }
+
+        /// <summary>
         /// Indicates whether the control has focus.
         /// </summary>
         public bool HasFocus { get { return InputHandler.KeyboardFocus == this; } }
@@ -958,6 +963,20 @@ namespace Gwen.Net.Control
             // todo: probably shouldn't invalidate after each removal
             while (m_Children.Count > 0)
                 RemoveChild(m_Children[0], true);
+        }
+
+        /// <summary>
+        /// Deletes all children (and disposes them).
+        /// </summary>
+        public virtual void DeleteAllChildrenOfType<T>(bool Dispose = true)
+        {
+            // todo: probably shouldn't invalidate after each removal
+            int i = 0;
+            while (i < m_Children.Count)
+            {
+                if (m_Children[i].GetType().Equals(typeof(T))) RemoveChild(m_Children[i], Dispose);
+                else i++;
+            }
         }
 
         /// <summary>

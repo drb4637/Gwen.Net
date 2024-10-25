@@ -15,9 +15,9 @@ namespace Gwen.Net.Control
         protected TreeToggleButton m_ToggleButton = null;
         protected TreeNodeLabel m_Title = null;
         private bool m_Root = false;
-
         private bool m_Selected;
         private bool m_Selectable;
+        private bool m_Sorted = false;
 
         /// <summary>
         /// Root node of the tree view.
@@ -95,6 +95,22 @@ namespace Gwen.Net.Control
         /// </summary>
         [Xml.XmlProperty]
         public string Text { get { return m_Title.Text; } set { m_Title.Text = value; } }
+
+        /// <summary>
+        /// Affects whether nodes are added to the end of the list, or inserted alphabetically. Changing this property does not affect existing nodes.
+        /// </summary>
+        [Xml.XmlProperty]
+        public bool Sorted { get { return m_Sorted; } set { m_Sorted = value; } }
+
+        /// <summary>
+        /// Sets the font for the current node 
+        /// </summary>
+        /// <param name="f"></param>
+        public void SetFont(Gwen.Net.Font f)
+        {
+            if (m_Title != null)
+                m_Title.Font = f;
+        }
 
         /// <summary>
         /// List of selected nodes.
@@ -270,6 +286,35 @@ namespace Gwen.Net.Control
             node.Text = label;
             node.Name = name;
             node.UserData = userData;
+
+            if (m_Sorted)
+            {
+                var nextAlphabetically = Children.FirstOrDefault(c =>
+                {
+                    var cNode = c as TreeNode;
+                    if (cNode != null)
+                    {
+                        return (cNode.Text.CompareTo(node.Text) > 0);
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                });
+
+                if (nextAlphabetically != null)
+                {
+                    var index = Children.IndexOf(nextAlphabetically);
+                    if (index >= 0)
+                    {
+                        for (int i = Children.Count - 1; i > index; i--)
+                        {
+                            Children[i] = Children[i - 1];
+                        }
+                        Children[index] = node;
+                    }
+                }
+            }
 
             return node;
         }

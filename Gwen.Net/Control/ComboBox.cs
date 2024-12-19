@@ -67,8 +67,11 @@ namespace Gwen.Net.Control
             if (!IsDisabled)
             {
                 MenuItem item = control as MenuItem;
-                if (null == item) return;
-
+                if (null == item)
+                {
+                    m_Button.Text = "";
+                    return;
+                }
                 m_Button.Text = item.Text;
             }
 

@@ -32,6 +32,11 @@ namespace Gwen.Net.Control.Internal
                     m_SelectedItem = value;
                     OnItemSelected(m_SelectedItem, new ItemSelectedEventArgs(value));
                 }
+                else if (value == null)
+                {
+                    m_SelectedItem = null;
+                    OnItemSelected(m_SelectedItem, new ItemSelectedEventArgs(value));
+                }
             }
         }
 
